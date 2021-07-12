@@ -1,1 +1,15 @@
-body { background-color: #ede3d5; }
+body { background-color: #929ba5; }
+
+html {
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    margin-top: auto;
+}
