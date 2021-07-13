@@ -1,11 +1,5 @@
-<h1>StaticPublic#landing_page</h1>
-<p>Find me in app/views/static_public/landing_page.html.erb</p>
+<h1 class="store_title">Rails Store</h1>
 
-<% if user_signed_in? %>
-    <%= image_tag current_user.image, size: '30x30', alt: "#{current_user.email}" if current_user.image? %>
-    <%= current_user.name %>
-    <%= current_user.uid %>
-    <%= current_user.provider %>
-<% else %>
-    <%= link_to "Sign in with Github", omniauth_authorize_path(User, :github), method: :post, data: { disable_with: "Connecting..." } %>
+<%= link_to root_path, class: "nav-link #{'active fw-bold' if current_page?(root_path)}" do %>
+    <button type="button" class="btn btn-secondary"> <div class="fas fa-store"></div> Store </button>
 <% end %>
