@@ -1,2 +1,11 @@
 <h1>StaticPublic#landing_page</h1>
 <p>Find me in app/views/static_public/landing_page.html.erb</p>
+
+<% if user_signed_in? %>
+    <%= image_tag current_user.image, size: '30x30', alt: "#{current_user.email}" if current_user.image? %>
+    <%= current_user.name %>
+    <%= current_user.uid %>
+    <%= current_user.provider %>
+<% else %>
+    <%= link_to "Sign in with Github", omniauth_authorize_path(User, :github), method: :post, data: { disable_with: "Connecting..." } %>
+<% end %>
