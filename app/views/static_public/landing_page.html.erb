@@ -1,5 +1,7 @@
 <h1 class="store_title">Rails Store</h1>
 
-<%= link_to root_path, class: "nav-link #{'active fw-bold' if current_page?(root_path)}" do %>
-    <button type="button" class="btn btn-secondary"> <div class="fas fa-store"></div> Store </button>
-<% end %>
+<button type="button" class="proceed">
+    <span>
+        <%= link_to "Proceed", categories_path%> 
+    </span>
+</button>
