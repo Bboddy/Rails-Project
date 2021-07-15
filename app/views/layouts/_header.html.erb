@@ -11,15 +11,15 @@
       <ul class="navbar-nav me-auto">
         <%= link_to root_path, class: "nav-link #{'active fw' if current_page?(root_path)}" do %>
           <div class="fa fa-home"></div>
-          Home
+          <%= link_to "Home", root_path%>
         <% end %>
         <%= link_to root_path, class: "nav-link #{'active fw' if current_page?(root_path)}" do %>
           <div class="fas fa-store"></div>
-          Store
+          <%= link_to "Store", '/categories'%>
         <% end %>
         <%= link_to root_path, class: "nav-link #{'active fw' if current_page?(root_path)}" do %>
           <div class="fas fa-shopping-cart"></div>
-          Cart
+          <%= link_to "Cart", cart_path(current_user.id)%>
         <% end %>
       </ul>
       <ul class="navbar-nav ml-auto">

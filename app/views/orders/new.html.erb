@@ -2,16 +2,18 @@
     <div class="categories">
         <h1>Make a Order</h1>
         <% @items. each do |i| %>
-                <a id="category" class="list-group-item list-group-item-action">
+            <a id="category" class="list-group-item list-group-item-action">
                 <h4 id="product"> 
                     <%= i.product.name %>
                     <%= "(x#{i.quanity})" %>
-                    <br>
                     <%= "$#{i.product.price}" %>
                 </h4>
-                </a>
-            <% end %>
-        <h6 class="backwards"> <%= link_to "Place Order", order_path%> </h6>
-        <h6 class="backwards"> <%= link_to "Back to Cart", cart_path%> </h6>
+            </a>
+        <% end %>
+        <a id="category" class="list-group-item list-group-item-action">
+            <h2>Order Total: <%= "$#{@order_total}" %></h2>
+        </a>
+        <h6 class="backwards"> <%= link_to "Place Order", order_path(current_user.id)%> </h6>
+        <h6 class="backwards"> <%= link_to "Back to Cart", cart_path(current_user.id)%> </h6>
     </div>
 </div>
