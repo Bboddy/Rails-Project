@@ -17,9 +17,11 @@
           <div class="fas fa-store"></div>
           <%= link_to "Store", '/categories'%>
         <% end %>
-        <%= link_to root_path, class: "nav-link #{'active fw' if current_page?(root_path)}" do %>
-          <div class="fas fa-shopping-cart"></div>
-          <%= link_to "Cart", cart_path(current_user.id)%>
+        <% if current_user %>
+          <%= link_to root_path, class: "nav-link #{'active fw' if current_page?(root_path)}" do %>
+            <div class="fas fa-shopping-cart"></div>
+            <%= link_to "Cart", cart_path(current_user.id)%>
+          <% end %>
         <% end %>
       </ul>
       <ul class="navbar-nav ml-auto">
