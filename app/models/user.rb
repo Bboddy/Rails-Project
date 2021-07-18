@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :ordered_items, through: :cart
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]

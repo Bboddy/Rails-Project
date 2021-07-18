@@ -16,10 +16,11 @@
                 <% end %>
             <% end %>
             <h5> Total Price: $<%= @cart.total_price %> </h5>
+            <h6 class="backwards"> <%= link_to "Check Out", new_order_path%> </h6>
+            <h6 class="backwards"> <%= link_to "Back to Categories", categories_path%> </h6>
         <% else %>
             <a id="category" class="list-group-item list-group-item-action"> <h3 class="empty"> Your Cart is Empty! </h3> </a>
+            <h6 class="backwards"> <%= link_to "Back to Shop", categories_path%> </h6>
         <% end %>
-        <h6 class="backwards"> <%= link_to "Check Out", new_order_path%> </h6>
-        <h6 class="backwards"> <%= link_to "Back to Categories", '/categories'%> </h6>
     </div>
 </div>

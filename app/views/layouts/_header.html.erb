@@ -22,6 +22,10 @@
             <div class="fas fa-shopping-cart"></div>
             Cart
           <% end %>
+          <%= link_to order_path(current_user.id), class: "nav-link #{'active fw' if current_page?(cart_path(current_user.id))}" do %>
+            <div class="far fa-file-alt"></div>
+            Orders
+          <% end %>
         <% end %>
       </ul>
       <ul class="navbar-nav ml-auto">

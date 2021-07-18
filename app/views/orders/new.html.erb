@@ -1,11 +1,11 @@
 <div>
     <div class="categories">
-        <h1>Proceed To Place Order</h1>
+        <h1>Order Placed!</h1>
         <% @items. each do |i| %>
             <a id="category" class="list-group-item list-group-item-action">
-                <h4 id="product"> 
-                    <%= i.product.name %>
-                    <%= "(x#{i.quantity})" %>
+                <h4 id="product">
+                    <%= "(#{i.quantity})  " %>
+                    <%= "#{i.product.name} : " %>
                     <%= "$#{i.product.price}" %>
                 </h4>
             </a>
@@ -13,7 +13,7 @@
         <a id="category" class="list-group-item list-group-item-action">
             <h2>Order Total: <%= "$#{@order_total}" %></h2>
         </a>
-        <h6 class="backwards"> <%= link_to "Place Order", order_path(current_user.id)%> </h6>
+        <h6 class="backwards"> <%= link_to "View All Orders", order_path(current_user.id)%> </h6>
         <h6 class="backwards"> <%= link_to "Back to Cart", cart_path(current_user.id)%> </h6>
     </div>
 </div>
