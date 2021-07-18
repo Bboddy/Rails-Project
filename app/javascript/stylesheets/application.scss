@@ -23,13 +23,6 @@ footer {
     align-items: center;
 }
 
-.new_user{
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    padding: 1vh;
-    border:2px solid #fff;
-}
-
 .feild{
     margin-top: 1vh;
     margin-bottom: 1vh;
@@ -154,4 +147,12 @@ button:hover span:after {
     0% { color: black; }
     50% { color: white; }
     100% { color: black; }
+}
+
+.new_user{
+    background-color: white;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    padding: 1vh;
+    border:2px solid black;
 }
