@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-    has_many :users, through: :carts
+    has_many :items
     belongs_to :cart, optional: true
     belongs_to :category, optional: true
 

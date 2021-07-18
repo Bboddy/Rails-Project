@@ -1,20 +1,18 @@
 <div>
     <div class="categories">
         <h1>Order Placed</h1>
-        <h5>for</h5>
-        <% @items. each do |i| %>
-            <a id="category" class="list-group-item list-group-item-action">
-                <h4 id="product"> 
-                    <%= i.product.name %>
-                    <%= "(x#{i.quanity})" %>
-                    <%= "$#{i.product.price}" %>
-                </h4>
-            </a>
-        <% end %>
-        <a id="category" class="list-group-item list-group-item-action">
-            <h4>Order Total: <%= "$#{@order_total}" %></h4>
-        </a>
-        <h6 class="backwards"> <%= link_to "Back to Store", '/categories'%> </h6>
-        <h6 class="backwards"> <%= link_to "Back to Cart", cart_path(current_user.id)%> </h6>
+        <h2>Your Orders</h2>
+            <% @ordered_items. each do |i| %>
+                <a id="category" class="list-group-item list-group-item-action">
+                    <h4 id="product"> 
+                        <%= i.product.name %>
+                        <%= "(x#{i.quantity})" %>
+                        <%= "$#{i.product.price}" %>
+                    </h4>
+                    <h4><%= "Ordered @ #{i.created_at}" %></h4>
+                </a>
+            <% end %>
+            <h6 class="backwards"> <%= link_to "Continue Shopping", categories_path%> </h6>
+            <h6 class="backwards"> <%= link_to "Back to Home", root_path%> </h6>
     </div>
 </div>

@@ -6,8 +6,8 @@ class CartController < ApplicationController
     def create
         cart = Cart.find_or_create_by(user: current_user)
         product = Product.find(params[:product_id])
-        item = Item.find_or_create_by(product: product, cart: cart)
-        item.quanity ? item.update(quanity: (item.quanity + params[:quantiy].to_i)) : item.update(quanity: params[:quantiy])
+        item = Item.find_or_create_by(product: product, cart: cart, user: current_user)
+        item.quantity ? item.update(quantity: (item.quantity + params[:quantiy].to_i)) : item.update(quantity: params[:quantiy])
         update_total_price()
         redirect_to cart_path(cart.id)
     end
@@ -23,7 +23,7 @@ class CartController < ApplicationController
         product = Product.find(params[:product_id])
         item = Item.find_or_create_by(product: product, cart: cart)
         
-        if item_params[:quanity].to_i < 1
+        if item_params[:quantity].to_i < 1
             item.destroy
             update_total_price()
         else
@@ -37,7 +37,7 @@ class CartController < ApplicationController
     private
 
     def item_params
-        params.require(:item).permit(:quanity)
+        params.require(:item).permit(:quantity)
     end
 
     def update_total_price
@@ -46,7 +46,7 @@ class CartController < ApplicationController
         total = 0
         
         items.each do |i|
-            total += (i.product.price.to_i * i.quanity.to_i)
+            total += (i.product.price.to_i * i.quantity.to_i)
         end
 
         cart.update(total_price: total.to_i)

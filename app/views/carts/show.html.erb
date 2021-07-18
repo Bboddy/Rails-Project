@@ -8,9 +8,9 @@
                     <br>
                     <%= hidden_field_tag :product_id, i.product.id %>
                     <%= f.label "Quantity:"%>
-                    <%= f.number_field :quanity %>
-                    <%= f.label "Price (#{i.quanity}) : $ " %>
-                    <%= f.label (i.product.price.to_i * i.quanity.to_i) %>
+                    <%= f.number_field :quantity %>
+                    <%= f.label "Price (#{i.quantity}) : $ " %>
+                    <%= f.label (i.product.price.to_i * i.quantity.to_i) %>
                     <%= f.submit "Update Cart" %>
                 </a>
             <% end %>
