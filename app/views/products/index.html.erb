@@ -8,7 +8,7 @@
 
                 <%= form_tag cart_index_path do %>
                     <%= hidden_field_tag :product_id, product.id %>
-                    <%= number_field_tag :quantiy, 1 %>
+                    <%= number_field_tag :quantiy, 1 , min: 1, max: 10 %>
                     <%= submit_tag "Add to Cart" %>
                 <% end %>
 
