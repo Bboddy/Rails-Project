@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
-    has_many :items
     belongs_to :cart, optional: true
     belongs_to :category, optional: true
+    has_many :items, dependent: :destroy
 
     validates :name, presence: true
     validates :price, presence: true

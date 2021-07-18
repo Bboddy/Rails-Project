@@ -1,12 +1,8 @@
 class CartController < ApplicationController
-    def index
-        
-    end
-
     def create
         cart = Cart.find_or_create_by(user: current_user)
         product = Product.find(params[:product_id])
-        item = Item.find_or_create_by(product: product, cart: cart, user: current_user)
+        item = Item.find_or_create_by(product: product, cart: cart)
         item.quantity ? item.update(quantity: (item.quantity + params[:quantiy].to_i)) : item.update(quantity: params[:quantiy])
         update_total_price()
         redirect_to cart_path(cart.id)

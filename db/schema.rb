@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_18_110346) do
+ActiveRecord::Schema.define(version: 2021_07_18_110157) do
 
   create_table "carts", force: :cascade do |t|
     t.decimal "total_price"
@@ -34,10 +34,8 @@ ActiveRecord::Schema.define(version: 2021_07_18_110346) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "quantity"
-    t.integer "user_id"
     t.index ["cart_id"], name: "index_items_on_cart_id"
     t.index ["product_id"], name: "index_items_on_product_id"
-    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "ordered_items", force: :cascade do |t|
@@ -92,7 +90,6 @@ ActiveRecord::Schema.define(version: 2021_07_18_110346) do
   add_foreign_key "carts", "users"
   add_foreign_key "items", "carts"
   add_foreign_key "items", "products"
-  add_foreign_key "items", "users"
   add_foreign_key "ordered_items", "orders"
   add_foreign_key "ordered_items", "products"
   add_foreign_key "ordered_items", "users"

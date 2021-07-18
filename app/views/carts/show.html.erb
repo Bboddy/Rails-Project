@@ -1,22 +1,24 @@
 <div>
     <div class="categories">
-        <h1>Your Cart</h1>
-        <% @items.each do |i| %>
-
-            <%= form_for i, url: cart_path do |f| %>
-                <a id="category" class="list-group-item list-group-item-action"> <h4 id="product"> <%= i.product.name %> </h4>
-                    <br>
-                    <%= hidden_field_tag :product_id, i.product.id %>
-                    <%= f.label "Quantity:"%>
-                    <%= f.number_field :quantity %>
-                    <%= f.label "Price (#{i.quantity}) : $ " %>
-                    <%= f.label (i.product.price.to_i * i.quantity.to_i) %>
-                    <%= f.submit "Update Cart" %>
-                </a>
+        <h1 class="cart">Your Cart</h1>
+        <% if @items.length > 0 %>
+            <% @items.each do |i| %>
+                <%= form_for i, url: cart_path do |f| %>
+                    <a id="category" class="list-group-item list-group-item-action"> <h4 id="product"> <%= i.product.name %> </h4>
+                        <br>
+                        <%= hidden_field_tag :product_id, i.product.id %>
+                        <%= f.label "Quantity:"%>
+                        <%= f.number_field :quantity %>
+                        <%= f.label "Price (#{i.quantity}) : $ " %>
+                        <%= f.label (i.product.price.to_i * i.quantity.to_i) %>
+                        <%= f.submit "Update Cart" %>
+                    </a>
+                <% end %>
             <% end %>
-
+            <h5> Total Price: $<%= @cart.total_price %> </h5>
+        <% else %>
+            <a id="category" class="list-group-item list-group-item-action"> <h3 class="empty"> Your Cart is Empty! </h3> </a>
         <% end %>
-        <h5> Total Price: $<%= @cart.total_price %> </h5>
         <h6 class="backwards"> <%= link_to "Check Out", new_order_path%> </h6>
         <h6 class="backwards"> <%= link_to "Back to Categories", '/categories'%> </h6>
     </div>
