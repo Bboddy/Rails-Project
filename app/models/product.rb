@@ -5,5 +5,4 @@ class Product < ApplicationRecord
 
     validates :name, presence: true
     validates :price, presence: true
-    validates :stock, length: {minimum: 0}
 end

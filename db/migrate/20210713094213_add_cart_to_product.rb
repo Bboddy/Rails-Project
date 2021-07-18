@@ -1,5 +1,5 @@
 class AddCartToProduct < ActiveRecord::Migration[6.1]
   def change
-    add_reference :products, :cart, foreign_key: true
+    add_reference :carts, :product, foreign_key: true
   end
 end
